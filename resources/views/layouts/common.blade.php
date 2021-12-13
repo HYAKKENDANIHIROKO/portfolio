@@ -23,8 +23,7 @@
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        {{-- この章の後半で作成するCSSを読み込みます --}}
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+       
     </head>
     <body>
         <div id="app">
@@ -65,7 +64,7 @@
                                     </form>
                                 </div>
                             </li>
-                            @endguest
+                        @endguest
                             {{-- 以上までを追記 --}}
                         </ul>
                     </div>

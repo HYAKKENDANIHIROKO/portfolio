@@ -1,5 +1,5 @@
 @extends('layouts.common')
-@section('title', 'お店の新規登録')
+@section('title', 'お店の新規登録確認画面')
  <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
 @section('content')
     <div class="top-wrapper"> 
@@ -8,65 +8,57 @@
                 <div class="row">
                     <div class="col-md-9 mx-auto">
                         <h1 class="h4 mb-4 font-weight-bold">
-                            お店の新規登録
+                            確認画面
                         </h1>
-                        <form action="{{action("FoodieController@post") }}" method="post" enctype="multipart/form-data">
-                            @if (count($errors) > 0)
-                                <div style="color:red;">
-                                    <ul>
-                                        @foreach($errors->all() as $e)
-                                            <li>{{ $e }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            <fieldset class="mb-4">
+                        <form method="post" action="{{ route('create.send') }}">
+	                        @csrf
+	                        <fieldset class="mb-4">
                                 <div class="form-group">
                                     <label for="subject">
                                         店名
                                     </label>
-                                    <input name="shop_name" class="form-control" value="{{ old('shop_name') }}" type="text">
+                                    {{ $input["shop_name"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         値段
                                     </label>
-                                    <input name="price" class="form-control" value="{{ old('price') }}" type="text">
+                                    {{ $input["price"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         画像
                                     </label>
-                                    <input name="image" class="form-control-file" type="file" >
+                                    {{ $input["image_path"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         座席 
                                     </label>
-                                    <input name="seat" class="form-control" value="{{ old('seat') }}" type="text">
+                                    {{ $input["seat"] }}
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
                                         メニュー
                                     </label>
-                                    <input name="menu" class="form-control" value="{{ old('menu') }}" type="text">
+                                     {{ $input["menu"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        住所
                                     </label>
-                                    <input name="address" class="form-control" value="{{ old('address') }}" type="text">
+                                     {{ $input["address"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        ユーザー名
                                     </label>
                                     <div class="col-md-6">
-                                        <input name="user_id" class="form-control" value="{{ old('user_id') }}" type="text">
+                                     {{ $input["user_id"] }}
                                     </div>
                                 </div>
                                 {{ csrf_field() }}
-                                <input type="submit" class="btn btn-danger" value="送信">
+                                <input type="submit" class="btn btn-danger" value="登録">
                             </fieldset>
                         </form>
                     </div>
