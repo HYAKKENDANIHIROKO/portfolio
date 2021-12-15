@@ -1,0 +1,12 @@
+.jumbotron-extend {
+    height: 70%;
+    position: relative;
+    background: url(../images/cupcake.jpg) no-repeat center center;
+    background-size: cover;
+}
+.card {
+    margin: 300px 0;
+}
+.form-control {
+    padding: 10px 0;
+}

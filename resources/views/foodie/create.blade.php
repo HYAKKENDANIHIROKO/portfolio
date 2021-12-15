@@ -2,12 +2,12 @@
 @section('title', 'お店の新規登録')
  <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
 @section('content')
-    <div class="top-wrapper"> 
-        <div class="container mt-4">
-            <div class="border p-4 bg-light">
+    <div class="top-wrapper "> 
+        <div class="container mt-5">
+            <div class="border p-5 m-3 bg-light">
                 <div class="row">
                     <div class="col-md-9 mx-auto">
-                        <h1 class="h4 mb-4 font-weight-bold">
+                        <h1 class="h2 mt-2 mb-2 font-weight-bold">
                             お店の新規登録
                         </h1>
                         <form action="{{action("FoodieController@post") }}" method="post" enctype="multipart/form-data">
@@ -20,7 +20,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <fieldset class="mb-4">
+                            <fieldset class="mt-3 mb-4">
                                 <div class="form-group">
                                     <label for="subject">
                                         店名

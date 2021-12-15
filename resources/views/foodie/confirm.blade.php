@@ -29,7 +29,7 @@
                                     <label for="subject">
                                         画像
                                     </label>
-                                    {{ $input["image_path"] }}
+                                    {{ $input["image"] }}
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">

@@ -19,7 +19,8 @@ Route::get('foodie/create','FoodieController@show')->middleware('auth')->name("c
 Route::post('foodie/create','FoodieController@post')->name("create.post");
 Route::get('foodie/create/confirm','FoodieController@confirm')->name("create.confirm");
 Route::post('foodie/create/confirm','FoodieController@send')->name("create.send");
-Route::post('foodie/create/thanks','FoodieController@complete')->name("create.complete");
+Route::get('foodie/create/thanks','FoodieController@complete')->name("create.complete");
+Route::get('foodie','FoodieController@index')->name("create.index");
 
 Route::get('foodie/search','FoodieController@search')->middleware('auth');
 

@@ -15,6 +15,7 @@ class FoodieController extends Controller
     private $validator=[
            "shop_name"=>"required",
            "price"=>"required",
+           //"image"=>"required",
            "seat"=>"required",
            "menu"=>"required",
            "address"=>"required",
@@ -28,7 +29,7 @@ class FoodieController extends Controller
     }
     public function post(Request $request)
     {
-        //登録ページのフォームに入力した情報を$formItems(フォームの各項目の名前を持ったプロパティ)にだけ入れて、$inputに代入
+        //$formItemsに入っている、登録ページのフォームに入力した情報（shop_name,price,seat,menu,address,user_id）だけを変数$inputに代入※つまりtokenは入っていない
         $input = $request->only($this->formItems);
         $validator = Validator::make($input, $this->validator);
 		if($validator->fails()){
@@ -37,12 +38,12 @@ class FoodieController extends Controller
 				->withErrors($validator); 
 		}
 		$path=$request->file("image")->store('public/image');
-		$input['image_path'] = basename($path);
+		$input['image'] = basename($path);
 			//if($request->has("image")){
 			    
 			//}
 		
-		//"form_input"というキーで入力フォームを保存
+		//セッションへ"form_input"というキーで入力フォームを保存
 		$request->session()->put("form_input", $input);
 
 		return redirect()->action("FoodieController@confirm");
@@ -69,7 +70,7 @@ class FoodieController extends Controller
 		$shop->save();
 
 		//ここでメールを送信するなどを行う
-        //セッションを空にする
+        //セッションを削除し、空にする
 		$request->session()->forget("form_input");
 
 		return redirect()->action("FoodieController@complete");
@@ -78,9 +79,13 @@ class FoodieController extends Controller
     public function complete(Request $request)
     {
       
-       return view("foodie.complete");
+        return view("foodie.complete");
     }
     
+    public function index(Request $request)
+    {
+        return view("foodie.index");  
+    }
     
     
     public function search()
