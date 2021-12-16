@@ -6,7 +6,7 @@
         <div class="jumbotron jumbotron-extend" style="maragin:90px 0">
             <div class="container">
                 <div class="row justify-content-center mt-5">
-                        <form class="card mx-auto" style="width:50rem;">
+                        <form action="{{ action('FoodieController@index') }}" method="get" class="card mx-auto" style="width:70rem;">
                             <div class="card-body">
                                 <div class=form-row> 
                                     <div class="form-group col-3">
@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="form-group col-3">
                                         <label class="people" for="number">人数</label>
-                                        <select class="form-control" name="number">
+                                        <select class="form-control" name="person">
                                             <option value="1">1名</option>
                                             <option value="2">2名</option>
                                             <option value="3">3名</option>
@@ -34,9 +34,22 @@
                                             <option value="12">12名</option>
                                             <option value="13">13名</option>
                                             <option value="14">14名</option>
-                                            <option value="15">15名</option>
+                                            <option value="15">15名以上</option>
                                         </select>
                                     </div>
+                                    <div class="form-group col-3">
+                                        <label class="guideline" for="relax">リラックス度</label>
+                                        <select class="form-control" name="relax">
+                                            <option value="guideline1">1</option>  
+                                            <option value="guideline2">2</option> 
+                                            <option value="guideline3">3</option> 
+                                            <option value="guideline4">4</option>  
+                                            <option value="guideline5">5</option>  
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <input class="mx-auto col-md-2 btn btn-danger" type="submit" name="submit" value="検索"> 
                                 </div>
                             </div>
                         </form>

@@ -69,7 +69,6 @@ class FoodieController extends Controller
 		$shop->fill($input);
 		$shop->save();
 
-		//ここでメールを送信するなどを行う
         //セッションを削除し、空にする
 		$request->session()->forget("form_input");
 
@@ -84,6 +83,7 @@ class FoodieController extends Controller
     
     public function index(Request $request)
     {
+        
         return view("foodie.index");  
     }
     
