@@ -3,9 +3,10 @@
     position: relative;
     background: url(../images/cupcake.jpg) no-repeat center center;
     background-size: cover;
+
 }
-.card {
-    margin: 300px 0;
+form,.card {
+    margin: 300px 0 80px 0;
 }
 .card-body {
     box-shadow: 6px 6px rgba(192,192,192,0.9);
@@ -21,4 +22,21 @@
 select {
     height: 40px;
     box-sizing: border-box;
+}
+.shop_list {
+    font-size: 30px;
+}
+.place{
+    width: 50px;
+}
+.img-fluid {
+    width: 75%;
+    
+}
+.shop_name {
+    font-size: 25px;
+}
+.price,.address {
+    font-size: 20px;
+    text-align:left;
 }

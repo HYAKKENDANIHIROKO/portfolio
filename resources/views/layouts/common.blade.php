@@ -65,7 +65,6 @@
                                 </div>
                             </li>
                         @endguest
-                            {{-- 以上までを追記 --}}
                         </ul>
                     </div>
                 </div>

@@ -6,56 +6,76 @@
         <div class="jumbotron jumbotron-extend" style="maragin:90px 0">
             <div class="container">
                 <div class="row justify-content-center mt-5">
-                        <form action="{{ action('FoodieController@index') }}" method="get" class="card mx-auto" style="width:70rem;">
-                            <div class="card-body">
-                                <div class=form-row> 
-                                    <div class="form-group col-3">
-                                        <label class="search" for="area">エリア・駅</label>
-                                        <input class="form-control" type="text" name="search_area" placeholder="エリア・駅">
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label class="search" for="key-word">キーワード</label>
-                                        <input class="form-control" type="text" name="search_key" placeholder="キーワード">
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label class="people" for="number">人数</label>
-                                        <select class="form-control" name="person">
-                                            <option value="1">1名</option>
-                                            <option value="2">2名</option>
-                                            <option value="3">3名</option>
-                                            <option value="4">4名</option>
-                                            <option value="5">5名</option>
-                                            <option value="6">6名</option>
-                                            <option value="7">7名</option>
-                                            <option value="8">8名</option>
-                                            <option value="9">9名</option>
-                                            <option value="10">10名</option>
-                                            <option value="11">11名</option>
-                                            <option value="12">12名</option>
-                                            <option value="13">13名</option>
-                                            <option value="14">14名</option>
-                                            <option value="15">15名以上</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label class="guideline" for="relax">リラックス度</label>
-                                        <select class="form-control" name="relax">
-                                            <option value="guideline1">1</option>  
-                                            <option value="guideline2">2</option> 
-                                            <option value="guideline3">3</option> 
-                                            <option value="guideline4">4</option>  
-                                            <option value="guideline5">5</option>  
-                                        </select>
-                                    </div>
+                    <!--検索画面の実装-->
+                    <form action="{{ action('FoodieController@index') }}" method="get" class="card mx-auto" style="width:70rem;">
+                        <div class="card-body">
+                            <div class=form-row> 
+                                <div class="form-group col-3">
+                                    <label class="search" for="area">エリア・駅</label>
+                                    <input class="form-control" type="text" name="search_area" placeholder="エリア・駅">
                                 </div>
-                                <div class="form-row">
-                                    <input class="mx-auto col-md-2 btn btn-danger" type="submit" name="submit" value="検索"> 
+                                <div class="form-group col-3">
+                                    <label class="search" for="key-word">キーワード</label>
+                                    <input class="form-control" type="text" name="search_key" placeholder="キーワード">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="people" for="number">人数</label>
+                                    <select class="form-control" name="person">
+                                        <option value="1">1名</option>
+                                        <option value="2">2名</option>
+                                        <option value="3">3名</option>
+                                        <option value="4">4名</option>
+                                        <option value="5">5名</option>
+                                        <option value="6">6名</option>
+                                        <option value="7">7名</option>
+                                        <option value="8">8名</option>
+                                        <option value="9">9名</option>
+                                        <option value="10">10名</option>
+                                        <option value="11">11名</option>
+                                        <option value="12">12名</option>
+                                        <option value="13">13名</option>
+                                        <option value="14">14名</option>
+                                        <option value="15">15名以上</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-3">
+                                    <label class="guideline" for="relax">リラックス度</label>
+                                    <select class="form-control" name="relax">
+                                        <option value="guideline1">1</option>  
+                                        <option value="guideline2">2</option> 
+                                        <option value="guideline3">3</option> 
+                                        <option value="guideline4">4</option>  
+                                        <option value="guideline5">5</option>  
+                                    </select>
                                 </div>
                             </div>
-                        </form>
+                            <div class="form-row">
+                                <input class="mx-auto col-md-2 btn btn-danger" type="submit" name="submit" value="検索"> 
+                            </div>
+                        </div>
+                    </form>
+                    <!--お店の一覧画面-->
+                    <div class="row">
+                        <p class="shop_list mx-auto">お店の一覧</p>
+                            <div class="w-100"></div>
+                    <div class="row">
+                        <div class="col-md-5 place"><img class="img-fluid" src="../images/cake.jpg"></div>
+                        <div class="col-md-6">
+                                    <a href="#" class="shop_name col-md-5">お店の名前</a> 
+                                    <p class="price">値段 昼：1000円～1999円　夜：2000円～3000円</p>
+                                    <p class="address">住所が入ります住所が入ります</p>
+                                    
+                        </div>
+                    </div>  
+                            
+                           
+                        </div>
                     </div>
-                </div>
+                </div>        
             </div>
+           
         </div>
-    </div>    
+    </div>
+
+        
            

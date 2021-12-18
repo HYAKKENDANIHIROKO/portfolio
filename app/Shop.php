@@ -8,9 +8,9 @@ class Shop extends Model
 {
     protected $fillable = ['shop_name','price','image','seat','menu','address','user_id']; 
     
-    public function users()
+    public function comments()
     {
-        return $this->hasMany('App\Shop');
+        return $this->hasMany('App\Comment');
 
     }
 }

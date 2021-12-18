@@ -83,6 +83,16 @@ class FoodieController extends Controller
     
     public function index(Request $request)
     {
+        $search_area=$request->input('search_area');
+        $search_key=$request->input('search_key');
+        
+        if($search_area !=''){
+            $shop=Shop::where('shop_name','like','%'.$searh_area.'%')->get();
+        }elseif($search_key !=''){
+             $shop=Shop::where('address','like','%'.$searh_key.'%')->get();
+        }else{
+            $shop=Shop::all();
+        }
         
         return view("foodie.index");  
     }
