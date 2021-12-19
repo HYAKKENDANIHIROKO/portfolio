@@ -12,11 +12,11 @@
                             <div class=form-row> 
                                 <div class="form-group col-3">
                                     <label class="search" for="area">エリア・駅</label>
-                                    <input class="form-control" type="text" name="search_area" placeholder="エリア・駅">
+                                    <input class="form-control" type="text" name="search_area" value="{{$search_area}}" placeholder="エリア・駅">
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="search" for="key-word">キーワード</label>
-                                    <input class="form-control" type="text" name="search_key" placeholder="キーワード">
+                                    <input class="form-control" type="text" name="search_key" value="{{$search_key}}" placeholder="キーワード">
                                 </div>
                                 <div class="form-group col-3">
                                     <label class="people" for="number">人数</label>
@@ -59,13 +59,14 @@
                         <p class="shop_list mx-auto">お店の一覧</p>
                             <div class="w-100"></div>
                     <div class="row">
-                        <div class="col-md-5 place"><img class="img-fluid" src="../images/cake.jpg"></div>
-                        <div class="col-md-6">
-                                    <a href="#" class="shop_name col-md-5">お店の名前</a> 
-                                    <p class="price">値段 昼：1000円～1999円　夜：2000円～3000円</p>
-                                    <p class="address">住所が入ります住所が入ります</p>
-                                    
-                        </div>
+                        @foreach($posts as $shop)
+                            <div class="col-md-5 place"><img class="img-fluid" src="../images/cupcake.jpg"></div>
+                            <div class="col-md-6">
+                                    <a class="shop_name col-md-5">{{$shop->shop_name}}</a> 
+                                    <p class="price">{{$shop->price}}</p>
+                                    <p class="address">{{$shop->address}}</p>
+                            </div>
+                        @endforeach  
                     </div>  
                             
                            
