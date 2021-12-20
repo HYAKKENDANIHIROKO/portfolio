@@ -84,12 +84,17 @@ class FoodieController extends Controller
     public function index(Request $request)
     {
         //フォームから送られてきた値を取得
-        $search_area=$request->input('search_area');
-        $search_key=$request->input('search_key');
-        
+        $search_area=$request->search_area;
+        $search_key=$request->search_key;
+        //$search_areaと$search_keyのどちらも値が入力されている場合の処理。selectで指定したカラムのみ表示。
         if($search_area !='' && $search_key !=''){
-            $posts=Shop::where([['address','like','%'.$search_area.'%'],['shop_name','like','%'.$search_key.'%']])->get();
-            $posts=Shop::orderBy("created_at","desc")->paginate(5);
+            $posts=Shop::where([['address','like','%'.$search_area.'%'],['shop_name','like','%'.$search_key.'%']])->select('shop_name','price','address','image')->get();
+        //$search_areaまたは$search_keyのどちらかに値が入力されている場合の処理。selectで指定したカラムのみ表示。 
+        }else if($search_area !='' || $search_key !='' ) {
+            $posts=Shop::where('address','like','%'.$search_area.'%')->orWhere('shop_name','like','%'.$search_key.'%')->select('shop_name','price','address','image')->get();
+        //それ以外の処理。selectで指定したカラムのみ表示。
+        }else{
+            $posts=Shop::select('shop_name','price','address','image')->get();
         }
        
         

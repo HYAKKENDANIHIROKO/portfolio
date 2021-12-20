@@ -28,10 +28,12 @@ select {
 }
 .place{
     width: 50px;
+    text-align:right;
+  
 }
 .img-fluid {
     width: 75%;
-    
+    margin:7px 0;
 }
 .shop_name {
     font-size: 25px;

@@ -57,11 +57,11 @@
                     <!--お店の一覧画面-->
                     <div class="row">
                         <p class="shop_list mx-auto">お店の一覧</p>
-                            <div class="w-100"></div>
-                    <div class="row">
+                        <div class="w-100"></div>
+                    <div class="row ">
                         @foreach($posts as $shop)
-                            <div class="col-md-5 place"><img class="img-fluid" src="../images/cupcake.jpg"></div>
-                            <div class="col-md-6">
+                            <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{secure_asset('storage/image/'.$shop->image) }}"></div>
+                            <div class="col-md-7 border-bottom border-dark">
                                     <a class="shop_name col-md-5">{{$shop->shop_name}}</a> 
                                     <p class="price">{{$shop->price}}</p>
                                     <p class="address">{{$shop->address}}</p>
