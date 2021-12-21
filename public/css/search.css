@@ -29,7 +29,6 @@ select {
 .place{
     width: 50px;
     text-align:right;
-  
 }
 .img-fluid {
     width: 75%;
@@ -37,6 +36,7 @@ select {
 }
 .shop_name {
     font-size: 25px;
+    font-weight:bold;
 }
 .price,.address {
     font-size: 20px;

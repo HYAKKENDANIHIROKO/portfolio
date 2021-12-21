@@ -7,7 +7,8 @@
             <div class="border p-5 m-3 bg-light">
                 <div class="row">
                     <div class="col-md-9 mx-auto">
-                        <h1 class="h2 mt-2 mb-2 font-weight-bold">
+                        <!--お店の登録フォーム作成-->
+                        <h1 class="h2 mt-2 mb-2">
                             お店の新規登録
                         </h1>
                         <form action="{{action("FoodieController@post") }}" method="post" enctype="multipart/form-data">

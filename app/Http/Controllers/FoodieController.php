@@ -96,11 +96,14 @@ class FoodieController extends Controller
         }else{
             $posts=Shop::select('shop_name','price','address','image')->get();
         }
-       
-        
         return view("foodie.index",["posts"=>$posts,"search_key"=>$search_key,"search_area"=>$search_area]);  
     }
     
-    
+    public function detail()
+    {
+       
+        return view("foodie.detail");
+    }
+   
    
 }
