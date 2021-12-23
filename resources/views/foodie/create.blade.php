@@ -48,7 +48,7 @@
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
-                                        メニュー
+                                        おすすめメニュー
                                     </label>
                                     <input name="menu" class="form-control" value="{{ old('menu') }}" type="text">
                                 </div>

@@ -26,10 +26,7 @@
                             <a class="nav-link active" id="pills-top-tab" data-toggle="pill" href="#pills-top" role="tab" aria-controls="pills-top" aria-selected="true">トップ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-seat-tab" data-toggle="pill" href="#pills-seat" role="tab" aria-controls="pills-seat" aria-selected="false">座席</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-menu-tab" data-toggle="pill" href="#pills-menu" role="tab" aria-controls="pills-menu" aria-selected="false">メニュー</a>
+                            <a class="nav-link" id="pills-menu-tab" data-toggle="pill" href="#pills-menu" role="tab" aria-controls="pills-menu" aria-selected="false">おすすめメニュー</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="false">地図</a>
@@ -114,14 +111,73 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="tab-pane fade" id="pills-seat" role="tabpanel" aria-labelledby="pills-seat-tab">
-                            <table class="table table-bordered p-3">
-                                <h3 class="mt-5">席の種類・席数</h3>
+                        <div class="tab-pane fade m-4" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">ユーザーのおすすめメニュー
+                            <div class="restoaurant-menu mt-3">
+                                <div class="restoaurant-menu_list">
+                                    <ul class="menu-contetns">
+                                        <li class="menu-list">メニューの中身と値段</li>
+                                         <li class="menu-list">メニューの中身と値段</li>
+                                    </ul>
+                                    
+                                </div>   
+                            </div>   
                         </div>
-                        <div class="tab-pane fade" id="pills-menu" role="tabpanel" aria-labelledby="pills-menu-tab">メニュー</div>
-                        <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">住所</div>
-                        <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像</div>
-                        <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ</div>
+                        <div class="tab-pane fade m-3" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">住所
+                         <table class="table table-bordered p-3">
+                                <tbody>
+                                    <tr>
+                                        <th class="table_headline">お店の住所</th>
+                                        <td class="shop_info">
+                                            <sapn>郵便番号。住所</sapn>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="table_headline">交通手段</th>
+                                        <td class="shop_info">
+                                            <sapn>〇〇線　△改札口～徒歩何分<</sapn>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像
+                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                            </div>    
+                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
+                            </div>
+                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade m-4" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ一覧
+                            <div class="restoaurant-detail_report_list mt-3">
+                                <div class="restoaurant_report_list border-bottom border-dark border-right-0">
+                                    <article class="restoaurant_report">
+                                        <div class="restoaurant_reporter">ユーザー名
+                                            <div class="restaurant_report_score">
+                                            </div>
+                                        </div>
+                                        <p class="restoaurant_report-text">お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。</p>
+                                            <figure class="restaurant_report_images">
+                                                <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                                                    <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                 
+                                                    <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                                    <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
+                                                </div>
+                                            </figure>
+                                    </article>
+                                </div>    
+                            </div>  
+                        </div>
                     </div>
                 </div>
         </div>
