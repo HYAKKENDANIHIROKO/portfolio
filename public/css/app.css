@@ -10979,7 +10979,36 @@ body {
 }
 
 .nav-link {
-  color: #fff !important;
+  color: #000 !important;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: red !important;
+  color: #fff;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0.25rem;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.tab-pane {
+  font-size: 22px;
+}
+
+.table_headline {
+  background-color: #FFE4C4;
+  width: 5rem;
+}
+
+.shop_info {
+  width: 14rem;
 }
 
 .table-dark {
