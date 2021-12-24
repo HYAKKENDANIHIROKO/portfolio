@@ -23,6 +23,7 @@ Route::get('foodie/create/thanks','FoodieController@complete')->name("create.com
 
 Route::get('foodie','FoodieController@index');
 Route::get('foodie/detail','FoodieController@detail');
+Route::get('foodie/comment','FoodieController@comment');
 
 Auth::routes();
 

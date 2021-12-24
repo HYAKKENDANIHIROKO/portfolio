@@ -104,6 +104,9 @@ class FoodieController extends Controller
        
         return view("foodie.detail");
     }
-   
+    public function comment()
+    {
+        return view("foodie.comment");
+    }
    
 }

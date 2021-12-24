@@ -118,7 +118,6 @@
                                         <li class="menu-list">メニューの中身と値段</li>
                                          <li class="menu-list">メニューの中身と値段</li>
                                     </ul>
-                                    
                                 </div>   
                             </div>   
                         </div>
@@ -169,7 +168,6 @@
                                             <figure class="restaurant_report_images">
                                                 <div class="d-flex flex-row bd-highlight col-md-5 m-3">
                                                     <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                 
                                                     <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                                     <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
                                                 </div>
@@ -180,5 +178,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
+ @endsection
