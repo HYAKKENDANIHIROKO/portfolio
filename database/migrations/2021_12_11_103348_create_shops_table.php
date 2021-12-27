@@ -22,6 +22,10 @@ class CreateShopsTable extends Migration
             $table->string('menu');
             $table->string('address');
             $table->string('user_id');
+            $table->string('tel');
+            $table->string('opening_hours');
+            $table->string('transportation');
+            $table->string('pay');
             $table->timestamps();
         });
     }

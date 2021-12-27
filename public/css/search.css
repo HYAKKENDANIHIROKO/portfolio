@@ -3,9 +3,11 @@ body{
 }
 .jumbotron-extend {
     height: 70%;
+    width:100%;
     position: relative;
     background: url(../images/cupcake.jpg) no-repeat center center;
     background-size: cover;
+   
 }
 .back-img {
    width: 100%;

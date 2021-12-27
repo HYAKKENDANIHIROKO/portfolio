@@ -58,6 +58,30 @@
                                     </label>
                                     <input name="address" class="form-control" value="{{ old('address') }}" type="text">
                                 </div>
+                                 <div class="form-group">
+                                    <label for="subject">
+                                       お問い合わせ番号
+                                    </label>
+                                    <input name="tel" class="form-control" value="{{ old('tel') }}" type="text">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="subject">
+                                       営業時間
+                                    </label>
+                                    <input name="opening_hours" class="form-control" value="{{ old('opening_hours') }}" type="text">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="subject">
+                                       交通手段
+                                    </label>
+                                    <input name="transportation" class="form-control" value="{{ old('transportation') }}" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                       支払い方法
+                                    </label>
+                                    <input name="pay" class="form-control" value="{{ old('pay') }}" type="text">
+                                </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        ユーザー名
@@ -66,8 +90,7 @@
                                         <input name="user_id" class="form-control" value="{{ old('user_id') }}" type="text">
                                     </div>
                                 </div>
-                                {{ csrf_field() }}
-                                <input type="submit" class="btn btn-danger" value="送信">
+                                        {{ csrf_field() }}
                             </fieldset>
                         </form>
                     </div>

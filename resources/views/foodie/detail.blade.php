@@ -9,11 +9,13 @@
                     <div class="header">
                         <div class="header-wrapper">
                             <div class="form-group row">
-                                <h3 class="shop_name pt-1 mb-1 col-md-7">お店の名前</h3>
+                                <h3 class="shop_name pt-1 mb-1 col-md-7">{{$shop->shop_name}}</h3>
                                 <div class="col-md-5  d-flex p-3 justify-content-end"><a href="" class="btn btn-success" role="button">口コミ投稿</a></div>
-                                <p class="price col-md-5">値段</p>
+                                <p class="price col-md-5">{{$shop->price}}</p>
                             </div>
-                                
+                            <div class="form-group row">
+                               <a href="{{route('foodie')}}" class="col-md-5">戻る</a> 
+                            </div>
                         </div>    
                     </div>
                    
@@ -42,7 +44,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active mb-3" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab">
                             <div class="d-flex flex-row bd-highlight col-md-5 m-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                                <img src="{{secure_asset('storage/image/'.$shop->image) }}" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                             </div>    
@@ -57,55 +59,55 @@
                                     <tr>
                                         <th class="table_headline">店名</th>
                                         <td class="shop_info">
-                                            <sapn>お店の名前</sapn>
+                                            <sapn>{{$shop->shop_name}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">予算</th>
                                         <td classs="shop_info">
-                                            <span>（例）1000円～2000円</span>
+                                            <span>{{$shop->price}}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">住所</th>
                                         <td class="shop_info">
-                                            <sapn>郵便番号・住所・アクセス情報が入ります</sapn>
+                                            <sapn>{{$shop->address}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">座席</th>
                                         <td class="shop_info">
-                                            <sapn>席数。カウンター席〇席、テーブル席〇席</sapn>
+                                            <sapn>{{$shop->seat}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">メニュー</th>
                                         <td class="shop_info">
-                                            <sapn>料理：料理の種類　ドリンク：ドリンクの種類</sapn>
+                                            <sapn>{{$shop->menu}}</sapn>
                                         </td>
                                     </tr>
                                      <tr>
                                         <th class="table_headline">お問い合わせ番号</th>
                                         <td class="shop_info">
-                                            <sapn>000</sapn>
+                                            <sapn>{{$shop->tel}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">営業時間</th>
                                         <td class="shop_info">
-                                            <sapn>何時～何時</sapn>
+                                            <sapn>{{$shop->opening_hours}}</sapn></sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">交通手段</th>
                                         <td class="shop_info">
-                                            <sapn>〇〇線　△改札口～徒歩何分</sapn>
+                                            <sapn>{{$shop->transportation}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">支払い方法</th>
                                         <td class="shop_info">
-                                            <sapn>現金。クレカ</sapn>
+                                            <sapn>{{$shop->pay}}</sapn>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -115,8 +117,7 @@
                             <div class="restoaurant-menu mt-3">
                                 <div class="restoaurant-menu_list">
                                     <ul class="menu-contetns">
-                                        <li class="menu-list">メニューの中身と値段</li>
-                                         <li class="menu-list">メニューの中身と値段</li>
+                                        <li class="menu-list">{{$shop->menu}}</li>
                                     </ul>
                                 </div>   
                             </div>   
@@ -125,15 +126,15 @@
                          <table class="table table-bordered p-3">
                                 <tbody>
                                     <tr>
-                                        <th class="table_headline">お店の住所</th>
+                                        <th class="table_headline">住所</th>
                                         <td class="shop_info">
-                                            <sapn>郵便番号。住所</sapn>
+                                            <sapn>{{$shop->address}}</sapn>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th class="table_headline">交通手段</th>
                                         <td class="shop_info">
-                                            <sapn>〇〇線　△改札口～徒歩何分<</sapn>
+                                            <sapn>{{$shop->transportation}}<</sapn>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -21,8 +21,8 @@ Route::get('foodie/create/confirm','FoodieController@confirm')->name("create.con
 Route::post('foodie/create/confirm','FoodieController@send')->name("create.send");
 Route::get('foodie/create/thanks','FoodieController@complete')->name("create.complete");
 
-Route::get('foodie','FoodieController@index');
-Route::get('foodie/detail','FoodieController@detail');
+Route::get('foodie','FoodieController@index')->name("foodie");
+Route::get('foodie/detail/{id}','FoodieController@detail')->name("foodie.detail");
 Route::get('foodie/comment','FoodieController@comment');
 
 Auth::routes();

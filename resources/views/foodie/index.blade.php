@@ -18,9 +18,9 @@
                                     <label class="search" for="key-word">キーワード</label>
                                     <input class="form-control" type="text" name="search_key" value="{{$search_key}}" placeholder="キーワード">
                                 </div>
-                                <div class="form-group col-3">
-                                    <label class="people" for="number">人数</label>
-                                    <select class="form-control" name="person">
+                                <div class="form-group col-2">
+                                    <label class="people" for="search_number">人数</label>
+                                    <select class="form-control" name="search_number" value="{{$search_number}}">
                                         <option value="1">1名</option>
                                         <option value="2">2名</option>
                                         <option value="3">3名</option>
@@ -38,9 +38,19 @@
                                         <option value="15">15名以上</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-2">
                                     <label class="guideline" for="relax">リラックス度</label>
                                     <select class="form-control" name="relax">
+                                        <option value="guideline1">1</option>  
+                                        <option value="guideline2">2</option> 
+                                        <option value="guideline3">3</option> 
+                                        <option value="guideline4">4</option>  
+                                        <option value="guideline5">5</option>  
+                                    </select>
+                                </div>
+                                <div class="form-group col-2">
+                                    <label class="guideline" for="volume" style="font-size:19px">料理のボリューム度</label>
+                                    <select class="form-control p-2" name="volume">
                                         <option value="guideline1">1</option>  
                                         <option value="guideline2">2</option> 
                                         <option value="guideline3">3</option> 
@@ -62,7 +72,7 @@
                         @foreach($posts as $shop)
                             <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{secure_asset('storage/image/'.$shop->image) }}"></div>
                             <div class="col-md-7 border-bottom border-dark">
-                                    <a href= '' class="shop_name col-md-5">{{$shop->shop_name}}</a> 
+                                    <a href= "{{ route('foodie.detail', ['id'=>$shop->id]) }}" class="shop_name col-md-5">{{$shop->shop_name}}</a> 
                                     <p class="price">{{$shop->price}}</p>
                                     <p class="address">{{$shop->address}}</p>
                             </div>
