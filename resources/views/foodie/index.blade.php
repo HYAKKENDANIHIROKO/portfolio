@@ -19,23 +19,11 @@
                                     <input class="form-control" type="text" name="search_key" value="{{$search_key}}" placeholder="キーワード">
                                 </div>
                                 <div class="form-group col-2">
-                                    <label class="people" for="search_number">人数</label>
-                                    <select class="form-control" name="search_number" value="{{$search_number}}">
-                                        <option value="1">1名</option>
-                                        <option value="2">2名</option>
-                                        <option value="3">3名</option>
-                                        <option value="4">4名</option>
-                                        <option value="5">5名</option>
-                                        <option value="6">6名</option>
-                                        <option value="7">7名</option>
-                                        <option value="8">8名</option>
-                                        <option value="9">9名</option>
-                                        <option value="10">10名</option>
-                                        <option value="11">11名</option>
-                                        <option value="12">12名</option>
-                                        <option value="13">13名</option>
-                                        <option value="14">14名</option>
-                                        <option value="15">15名以上</option>
+                                    <label class="search" for="people_number">人数</label>
+                                    <select class="form-control" name="search_number">
+                                        @for ($i = 1; $i <= 15; $i++)
+                                            <option value="{{ $i }}" @if(old('search_number', $search_number) == $i) selected @endif>{{ $i }}名以上</option>
+                                        @endfor
                                     </select>
                                 </div>
                                 <div class="form-group col-2">
@@ -69,7 +57,7 @@
                         <p class="shop_list mx-auto">お店の一覧</p>
                         <div class="w-100"></div>
                     <div class="row ">
-                        @foreach($posts as $shop)
+                        @foreach($shops as $shop)
                             <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{secure_asset('storage/image/'.$shop->image) }}"></div>
                             <div class="col-md-7 border-bottom border-dark">
                                     <a href= "{{ route('foodie.detail', ['id'=>$shop->id]) }}" class="shop_name col-md-5">{{$shop->shop_name}}</a> 

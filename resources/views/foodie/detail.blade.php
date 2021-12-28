@@ -14,7 +14,7 @@
                                 <p class="price col-md-5">{{$shop->price}}</p>
                             </div>
                             <div class="form-group row">
-                               <a href="{{route('foodie')}}" class="col-md-5">戻る</a> 
+                               <a href="#" class="col-md-5" style="font-size:18px" onClick="history.back()">戻る</a> 
                             </div>
                         </div>    
                     </div>
@@ -78,6 +78,12 @@
                                         <th class="table_headline">座席</th>
                                         <td class="shop_info">
                                             <sapn>{{$shop->seat}}</sapn>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <th class="table_headline">最大予約可能人数</th>
+                                        <td class="shop_info">
+                                            <sapn>{{$shop->people_number}}名</sapn>
                                         </td>
                                     </tr>
                                     <tr>

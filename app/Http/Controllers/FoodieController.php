@@ -10,7 +10,7 @@ use App\Shop;
 class FoodieController extends Controller
 {
     //フォームの名前をプロパティに持たせる
-    private $formItems = ["shop_name","price","seat","menu","address","tel","opening_hours","transportation","pay","user_id"];
+    private $formItems = ["shop_name","price","seat","menu","address","tel","opening_hours","transportation","pay","people_number","user_id"];
     //バリデーションの情報をプロパティに持たせる
     private $validator=[
            "shop_name"=>"required",
@@ -23,6 +23,7 @@ class FoodieController extends Controller
            "opening_hours"=>"required",
            "transportation"=>"required",
            "pay"=>"required",
+           "people_number"=>"required",
            "user_id"=>"required"];
            
         
@@ -87,22 +88,41 @@ class FoodieController extends Controller
     
     public function index(Request $request)
     {
+        $query=Shop::query();
         //フォームから送られてきた値を取得
-        $search_area=$request->search_area;
-        $search_key=$request->search_key;
-        $search_number=$request->search_number;
-        //$search_areaと$search_keyのどちらも値が入力されている場合の処理。selectで指定したカラムのみ表示。
-        if($search_area !='' && $search_key !='' && $search_number !=''){
-            $posts=Shop::where([['address','like','%'.$search_area.'%'],['shop_name','like','%'.$search_key.'%'],])->Where('seat','>=','$search_number')->select('id','shop_name','price','address','image')->get();
-        //$search_areaまたは$search_keyのどちらかに値が入力されている場合の処理。selectで指定したカラムのみ表示。 
-        }else if($search_area !='' || $search_key !='' || $search_number !='' ) {
-            $posts=Shop::where('address','like','%'.$search_area.'%')->orWhere('shop_name','like','%'.$search_key.'%')->orWhere('seat','>=','$search_number')->select('id','shop_name','price','address','image')->get();
-        //それ以外の処理。selectで指定したカラムのみ表示。
-        }else{
-            $posts=Shop::select('id','shop_name','price','address','image')->get();
+        $search_area=$request->input('search_area');
+        //$search_areaに値があるならあいまい検索
+        if (!empty($search_area)) {
+           $query->where('address', 'like', '%'.$search_area.'%');
         }
-        //dd($posts->toArray());
-        return view("foodie.index",["posts"=>$posts,"search_key"=>$search_key,"search_area"=>$search_area,"search_number"=>$search_number]);  
+        //$search_keyに値があるならあいまい検索
+        $search_key=$request->input('search_key');
+        if (!empty($search_key)) {
+           $query->where('shop_name', 'like', '%'.$search_key.'%');
+        }
+        //$search_numberに値があるなら検索
+        $search_number=$request->input('search_number');
+        if (!empty($search_number)) {
+           $query->where('people_number', '>=', $search_number);
+        }
+        //$search_areaと$search_keyと$search_numberに値があるなら検索
+        if(!empty($search_area) && !empty($search_key) && !empty($search_unmber) ){
+          $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=',$search_unmber );  
+        }
+         //$search_areaと$search_keyに値があるなら検索
+        if(!empty($search_area) && !empty($search_key)){
+          $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%');
+        }
+        //$search_areaと$search_numberに値があるなら検索
+        if(!empty($search_area) && !empty($search_unmber)){
+          $query->Where('address', 'like', '%'.$search_area.'%')->Where('people_number', '>=', $search_number);
+        }
+        //$search_keyと$search_numberに値があるなら検索
+        if(!empty($search_key) && !empty($search_unmber)){
+          $query->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=', $search_number);
+        }
+        $shops=$query->select('id','address','shop_name','image')->get();
+        return view("foodie.index",["shops"=>$shops,"search_key"=>$search_key,"search_area"=>$search_area,"search_number"=>$search_number]);  
     }
     
     public function detail($id)

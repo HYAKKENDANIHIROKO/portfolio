@@ -26,6 +26,7 @@ class CreateShopsTable extends Migration
             $table->string('opening_hours');
             $table->string('transportation');
             $table->string('pay');
+            $table->integer('people_number');
             $table->timestamps();
         });
     }
