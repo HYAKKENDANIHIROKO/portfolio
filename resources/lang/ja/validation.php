@@ -150,8 +150,17 @@ return [
         'price'=>'値段',
         'image'=>'画像',
         'seat'=>'座席',
-        'menu'=>'メニュー',
+        'people_number'=>'最大予約可能人数',
+        'menu'=>'おすすめメニュー',
         'address'=>'住所',
-        'user_id'=>'ユーザー名'],
+        'tel'=>'お問い合わせ番号',
+        'opening_hours'=>'営業時間',
+        'transportation'=>'交通手段',
+        'pay'=>'支払い',
+        'comment_title'=>'タイトル',
+        'content'=>'コメントの本文',
+        'relax_guidline'=>'リラックス度評価',
+         'volume_guidline'=>'料理のボリューム度評価'
+        ],
 
 ];

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Shop;
+use App\Comment;
 
 class FoodieController extends Controller
 {
@@ -44,9 +45,11 @@ class FoodieController extends Controller
 		}
 		$path=$request->file("image")->store('public/image');
 		$input['image'] = basename($path);
-			//if($request->has("image")){
-			    
-			//}
+			if($request->filled("image")){
+			    $image='入力値が存在します。値は'. $request->image;
+			} else{
+			    $image='入力値が存在しません。';
+			}
 		
 		//セッションへ"form_input"というキーで入力フォームを保存
 		$request->session()->put("form_input", $input);
@@ -128,11 +131,8 @@ class FoodieController extends Controller
     public function detail($id)
     {
         $shop= Shop::find($id); 
+
         return view("foodie.detail",compact('shop'));
     }
-    public function comment()
-    {
-        return view("foodie.comment");
-    }
-   
+    
 }

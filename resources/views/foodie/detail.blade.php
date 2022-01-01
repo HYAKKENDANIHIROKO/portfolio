@@ -10,7 +10,7 @@
                         <div class="header-wrapper">
                             <div class="form-group row">
                                 <h3 class="shop_name pt-1 mb-1 col-md-7">{{$shop->shop_name}}</h3>
-                                <div class="col-md-5  d-flex p-3 justify-content-end"><a href="" class="btn btn-success" role="button">口コミ投稿</a></div>
+                                <div class="col-md-5  d-flex p-3 justify-content-end"><a href="{{url('foodie/comment/{id}')}}" class="btn btn-success" role="button">口コミ投稿</a></div>
                                 <p class="price col-md-5">{{$shop->price}}</p>
                             </div>
                             <div class="form-group row">
@@ -165,22 +165,28 @@
                         </div>
                         <div class="tab-pane fade m-4" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ一覧
                             <div class="restoaurant-detail_report_list mt-3">
+                               @if($shop->comments !=null) 
+                                    @foreach($shop->comments as $comment)
                                 <div class="restoaurant_report_list border-bottom border-dark border-right-0">
                                     <article class="restoaurant_report">
-                                        <div class="restoaurant_reporter">ユーザー名
-                                            <div class="restaurant_report_score">
+                                        <div class="restoaurant_reporter">{{Auth::user()->name}}
+                                            <div class="restoaurant_reporter">{{$comment->comment_title}}
+                                                <div class="restaurant_report_score">
+                                                </div>
                                             </div>
                                         </div>
-                                        <p class="restoaurant_report-text">お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。お店の感想が入ります。</p>
+                                        <p class="restoaurant_report-text">{{$comment->content}}</p>
                                             <figure class="restaurant_report_images">
                                                 <div class="d-flex flex-row bd-highlight col-md-5 m-3">
-                                                    <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                                    <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                                    <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
+                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path1)}}" class="img-fluid float-left pr-3">
+                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path2)}}" class="img-fluid float-left pr-3">
+                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path3)}}" class="img-fluid float-left pr-3">
                                                 </div>
                                             </figure>
                                     </article>
-                                </div>    
+                                </div>
+                                    @endforeach
+                                @endif
                             </div>  
                         </div>
                     </div>

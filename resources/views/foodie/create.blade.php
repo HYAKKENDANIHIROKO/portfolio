@@ -38,13 +38,19 @@
                                     <label for="subject">
                                         画像
                                     </label>
-                                    <input name="image" class="form-control-file" type="file" >
+                                    <input name="image" class="form-control-file" value="{{ old('image')}}" type="file" >
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         座席 
                                     </label>
                                     <input name="seat" class="form-control" value="{{ old('seat') }}" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        最大予約可能人数（数値だけ入力してください）
+                                    </label>
+                                    <input name="people_number" class="form-control" value="{{ old('people_number') }}" type="text">
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
@@ -90,7 +96,13 @@
                                         <input name="user_id" class="form-control" value="{{ old('user_id') }}" type="text">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-md-10">
+                                        <input type="hidden" name="id" value="{{ old('id') }}">
                                         {{ csrf_field() }}
+                                        <input type="submit" class="btn btn-danger" value="送信">
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
                     </div>

@@ -5,7 +5,7 @@
     <div class="top-wrapper"> 
         <div class="jumbotron jumbotron-extend" style="maragin:90px 0">
             <div class="container">
-                <div class="row justify-content-center mt-5">
+               
                     <!--検索画面の実装-->
                     <form action="{{ action('FoodieController@index') }}" method="get" class="card mx-auto" style="width:70rem;">
                         <div class="card-body">
@@ -54,8 +54,14 @@
                     </form>
                     <!--お店の一覧画面の実装-->
                     <div class="row">
-                        <p class="shop_list mx-auto">お店の一覧</p>
+                        <div class="col-md-7">
+                            <p class="shop_list">お店の一覧</p>
+                        </div>
+                        <div class="col-md-5" style="text-align:right;">
+                            <a href="{{ action('FoodieController@show') }}" role="button" class="btn btn-success" style="font-size:19px;">お店の新規投稿はこちら</a>
+                        </div>
                         <div class="w-100"></div>
+                    </div>
                     <div class="row ">
                         @foreach($shops as $shop)
                             <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{secure_asset('storage/image/'.$shop->image) }}"></div>
@@ -66,7 +72,7 @@
                             </div>
                         @endforeach  
                     </div>  
-                </div>        
+                       
             </div>
         </div>   
     </div> 

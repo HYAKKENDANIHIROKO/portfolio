@@ -23,7 +23,9 @@ Route::get('foodie/create/thanks','FoodieController@complete')->name("create.com
 
 Route::get('foodie','FoodieController@index')->name("foodie");
 Route::get('foodie/detail/{id}','FoodieController@detail')->name("foodie.detail");
-Route::get('foodie/comment','FoodieController@comment');
+
+Route::get('foodie/comment/{id}','CommentController@add')->middleware('auth')->name("comment.add");
+Route::post('foodie/comment','CommentController@comment')->middleware('auth')->name("comment.comment");
 
 Auth::routes();
 

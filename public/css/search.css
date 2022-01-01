@@ -21,7 +21,8 @@ body{
 
 
 .card {
-    margin: 300px 0 80px 0;
+    margin-top: 300px;
+    margin-bottom:80px;
 }
 .card-body {
     box-shadow: 6px 6px rgba(192,192,192,0.9);
@@ -38,8 +39,9 @@ select {
     height: 40px;
     box-sizing: border-box;
 }
-.shop_list {
+.shop_list{
     font-size: 30px;
+    text-align:right;
 }
 .place{
     width: 50px;
