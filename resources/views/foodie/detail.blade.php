@@ -10,19 +10,21 @@
                         <div class="header-wrapper">
                             <div class="form-group row">
                                 <h3 class="shop_name pt-1 mb-1 col-md-7">{{$shop->shop_name}}</h3>
-                                <div class="col-md-5  d-flex p-3 justify-content-end"><a href="{{url('foodie/comment/{id}')}}" class="btn btn-success" role="button">口コミ投稿</a></div>
+                                <div class="col-md-5  d-flex p-3 justify-content-end"><a href="{{url('foodie/comment',['id'=>$shop->id])}}" class="btn btn-success" role="button">口コミ投稿</a></div>
                                 <p class="price col-md-5">{{$shop->price}}</p>
+                            </div>
+                            <div class="form-group row">
+                                <p class="relax-avg_score col-md-5 d-flex p-3">リラックス度</p>
+                                <p class="volume-avg_score col-md-5 d-flex p-3">料理のボリューム度</p>
                             </div>
                             <div class="form-group row">
                                <a href="#" class="col-md-5" style="font-size:18px" onClick="history.back()">戻る</a> 
                             </div>
                         </div>    
                     </div>
-                   
                 </div>
-            </div>
+           
             <!--ナビゲーションタブの実装-->
-            <div class="row">
                     <ul class="nav nav-pills mb-5 nav-fill col-md-12" id="pills-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-top-tab" data-toggle="pill" href="#pills-top" role="tab" aria-controls="pills-top" aria-selected="true">トップ</a>
@@ -41,17 +43,10 @@
                         </li>
                     </ul>
                     <!--トップ-->
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content" id="pills-tabContent col-md-12">
                         <div class="tab-pane fade show active mb-3" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab">
-                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
-                                <img src="{{secure_asset('storage/image/'.$shop->image) }}" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                            </div>    
-                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                            <div class="d-flex flex-row bd-highlight col-md-12 m-3">
+                                <img src="{{secure_asset('storage/image/'.$shop->image) }}" class="img-fluid float-md-left pr-3 col-md-4">
                             </div>
                             <table class="table table-bordered p-3">
                                 <h3 class="mt-5">基本情報</h3>
@@ -147,17 +142,17 @@
                             </table>
                         </div>
                         <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像
-                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
                                 <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                             </div>    
-                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
                             </div>
-                            <div class="d-flex flex-row bd-highlight col-md-5 m-3">
+                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
                                 <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
@@ -171,20 +166,26 @@
                                     <article class="restoaurant_report">
                                         <div class="restoaurant_reporter">{{Auth::user()->name}}
                                             <div class="restoaurant_reporter">{{$comment->comment_title}}
-                                                <div class="restaurant_report_score">
+                                                <div class="restaurant_report_score">リラックス度:  {{$comment->relax_guidline}}, 料理のボリューム度: {{$comment->volume_guidline}}
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="restoaurant_report-text">{{$comment->content}}</p>
+                                        <p class="restoaurant_report-text mt-4">{{$comment->content}}</p>
                                             <figure class="restaurant_report_images">
-                                                <div class="d-flex flex-row bd-highlight col-md-5 m-3">
-                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path1)}}" class="img-fluid float-left pr-3">
-                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path2)}}" class="img-fluid float-left pr-3">
-                                                    <img src="{{secure_asset('storage/image/'.$comment->image_path3)}}" class="img-fluid float-left pr-3">
+                                                <div class="d-flex flex-row col-md-12 m-3">
+                                                    @if($comment->image_path1 !=null)
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{secure_asset('storage/image/'. $comment->image_path1) }}" class="img-fluid"></div>
+                                                    @endif
+                                                    @if($comment->image_path2 !=null)
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{secure_asset('storage/image/'. $comment->image_path2) }}" class="img-fluid"></div>
+                                                    @endif
+                                                    @if($comment->image_path3 !=null)
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{secure_asset('storage/image/'. $comment->image_path3) }}" class="img-fluid"></div>
+                                                    @endif
                                                 </div>
                                             </figure>
                                     </article>
-                                </div>
+                                </div>  
                                     @endforeach
                                 @endif
                             </div>  

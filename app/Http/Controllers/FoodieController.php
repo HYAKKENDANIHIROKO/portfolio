@@ -124,7 +124,7 @@ class FoodieController extends Controller
         if(!empty($search_key) && !empty($search_unmber)){
           $query->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=', $search_number);
         }
-        $shops=$query->select('id','address','shop_name','image')->get();
+        $shops=$query->select('id','address','shop_name','image','price')->get();
         return view("foodie.index",["shops"=>$shops,"search_key"=>$search_key,"search_area"=>$search_area,"search_number"=>$search_number]);  
     }
     

@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['shop_id','user_id','comment_title','content','image_path1','image_path2','image_path3','relax_guidline','volume_guidline'];
+    protected $guarded = array('id');
+       public static $rules = array(
+        'shop_id'=> 'required',
+        'user_id'=> 'required',
+        'comment_title'=>'required',
+        'content'=> 'required',
+        'relax_guidline'=> 'required',
+       'volume_guidline'=>'required'
+    );
     
      public function users()
     {

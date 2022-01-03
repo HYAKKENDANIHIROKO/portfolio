@@ -11,37 +11,27 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-     //フォームの名前をプロパティに持たせる
-    private $formInfo = ["shop_id","user_id","comment_title","content","image_path1","image_path2","image_path3","relax_guidline","volume_guidline"];
-    //バリデーションの情報をプロパティに持たせる
-    private $validator=[
-           "shop_id"=>"required",
-           "user_id"=>"required",
-           "comment_title"=>"required",
-           "content"=>"required",
-           "relax_guidline"=>"required",
-           "volume_guidline"=>"required"
-           ];
+     //フォームの名前をプロパティに持たせる(bladeのフォーム部分にあるnameのところの名前と一緒)
+    private $formInfo = ["shop_id","user_id","comment_title","content","image1","image2","image3","relax_guidline","volume_guidline"];
+    
+   
            
      public function add($id)
-    {   
+    {  
+    
     	$shop=Shop::find($id);
-    	$users=Auth::user();
-    	return view("foodie.comment",compact('shop','users'));
+    	$user=Auth::user();
+    	return view("foodie.comment",compact('shop','user'));
     }
     public function comment(Request $request)
     {
+    	//dd($request);
     	//$forminfoに入っている口コミ投稿ページのフォームに入力した情報だけを$insertに代入
         $insert = $request->only($this->formInfo);
-         $validator = Validator::make($insert, $this->validator);
-         
-		if($validator->fails()){
-			return redirect()->action("CommentController@add",['id'=>$request->shop_id])
-				->withInput()
-				->withErrors($validator); 
-		}
+        $this->validate($request, Comment::$rules);
 		
 		$comment=new Comment;
+		//dd($insert);
 		//image_path1に画像がある場合とない場合の処理
 		if(isset($insert['image1'])){
 		   $path1 = $request->file('image1')->store('public/image');
@@ -59,24 +49,31 @@ class CommentController extends Controller
 		//image_path3に画像がある場合とない場合の処理
 		if(isset($insert['image3'])){
 		   $path3 = $request->file('image3')->store('public/image');
-		   $comment->image_path2 = basename($path3);  
+		   $comment->image_path3 = basename($path3);  
 		}
 		else{
 		    $comment->image_path3 = null;
 		}
+		unset($insert['image1']);
+		unset($insert['image2']);
+		unset($insert['image3']);
 		$comment->fill($insert);
+			
 		$comment->save();
-		
 	
 	
-        return redirect()->action("CommentController@comment");
+        return redirect()->action("CommentController@add",['id'=>$request->shop_id]);
     }
     
         public function detail($id)
     	{
-        $comment= Comment::find($id); 
+        $comments= Comment::find($id); 
+        
+      
+        $relax_guidline=DB::table('comments')->Where('shop_id',$shop_id)->avg('relax_guidline');
+        
 
-        return view("foodie.detail",compact('comment'));
+        return view("foodie.detail",['comments'=>$comments]);
     	}
         
        
