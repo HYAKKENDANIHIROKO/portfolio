@@ -23,7 +23,8 @@
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-       
+       {{--Font Awesomeを利用する為のコード--}}
+        <script src="https://kit.fontawesome.com/8d5659e30a.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="app">

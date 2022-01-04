@@ -81,6 +81,7 @@
                                     <div class="col-md-10">
                                         <input name="shop_id" value="{{$shop->id}}" type="hidden">
                                         <input name="user_id" value="{{Auth::id()}}" type="hidden">
+                                        <input name="submit_at" value="{{old('submit_at')}}" type="hidden">{{\Carbon\Carbon::now()->format("Y/m/d")}}
                                     </div>
                                 </div>
                                 {{ csrf_field() }}

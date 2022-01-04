@@ -14,11 +14,12 @@
                                 <p class="price col-md-5">{{$shop->price}}</p>
                             </div>
                             <div class="form-group row">
-                                <p class="relax-avg_score col-md-5 d-flex p-3">リラックス度</p>
-                                <p class="volume-avg_score col-md-5 d-flex p-3">料理のボリューム度</p>
+                                <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : {{$relax_avg}} </p>
+                                
+                                <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : {{$volume_avg}}</p>
                             </div>
                             <div class="form-group row">
-                               <a href="#" class="col-md-5" style="font-size:18px" onClick="history.back()">戻る</a> 
+                               <a href="#" class="col-md-5" style="font-size:18px;font-weight:bold;" onClick="history.back()">戻る</a> 
                             </div>
                         </div>    
                     </div>
@@ -142,29 +143,22 @@
                             </table>
                         </div>
                         <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像
-                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
-                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
+                        @foreach($shop->comments as $comment)
+                            <div class="d-flex flex-row bd-highlight col-md-12 m-3">
+                                <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path1)}}" class="img-fluid float-left pr-3"></div>
+                                <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path2)}}" class="img-fluid float-left pr-3"></div>
+                                <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path3)}}" class="img-fluid float-left pr-3"></div>
                             </div>    
-                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
-                            </div>
-                            <div class="d-flex flex-row bd-highlight col-md-7 m-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/cake.jpg" class="img-fluid float-left pr-3">
-                                <img src="../images/IMG_2207.jpg" class="img-fluid float-left pr-3">
-                            </div>
+                        @endforeach    
                         </div>
-                        <div class="tab-pane fade m-4" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ一覧
+                        <div class="tab-pane fade m-4" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ一覧(最新順です)
                             <div class="restoaurant-detail_report_list mt-3">
-                               @if($shop->comments !=null) 
-                                    @foreach($shop->comments as $comment)
+                            <!--口コミ投稿を最新順に並べる-->
+                            @forelse ($shop->comments()->orderBy('created_at', 'desc')->get() as $comment)
                                 <div class="restoaurant_report_list border-bottom border-dark border-right-0">
                                     <article class="restoaurant_report">
-                                        <div class="restoaurant_reporter">{{Auth::user()->name}}
+                                        <div class="restaurant_report_date">{{$comment->submit_at}}</div>
+                                        <div class="restoaurant_reporter">{{$comment->user->name}}
                                             <div class="restoaurant_reporter">{{$comment->comment_title}}
                                                 <div class="restaurant_report_score">リラックス度:  {{$comment->relax_guidline}}, 料理のボリューム度: {{$comment->volume_guidline}}
                                                 </div>
@@ -185,9 +179,15 @@
                                                 </div>
                                             </figure>
                                     </article>
-                                </div>  
-                                    @endforeach
-                                @endif
+                                </div> 
+                            @empty
+                                <p>口コミはありません</p>
+                            @endforelse
+                                   
+                                
+                                
+                                 
+                                
                             </div>  
                         </div>
                     </div>

@@ -16,7 +16,7 @@ class Shop extends Model
     
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->belongTo('App\User');
 
     }
 }

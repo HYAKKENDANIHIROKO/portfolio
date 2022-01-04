@@ -160,7 +160,8 @@ return [
         'comment_title'=>'タイトル',
         'content'=>'コメントの本文',
         'relax_guidline'=>'リラックス度評価',
-         'volume_guidline'=>'料理のボリューム度評価'
+         'volume_guidline'=>'料理のボリューム度評価',
+         'user_id'=>'ユーザー名'
         ],
 
 ];

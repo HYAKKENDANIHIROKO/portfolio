@@ -7,16 +7,17 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Shop;
 use App\Comment;
+use Carbon\Carbon;
 
 class FoodieController extends Controller
 {
     //フォームの名前をプロパティに持たせる
-    private $formItems = ["shop_name","price","seat","menu","address","tel","opening_hours","transportation","pay","people_number","user_id"];
+    private $formItems = ["shop_name","price","image","seat","menu","address","tel","opening_hours","transportation","pay","people_number","user_id"];
     //バリデーションの情報をプロパティに持たせる
     private $validator=[
            "shop_name"=>"required",
            "price"=>"required",
-           //"image"=>"required",
+           "image"=>"required",
            "seat"=>"required",
            "menu"=>"required",
            "address"=>"required",
@@ -45,11 +46,6 @@ class FoodieController extends Controller
 		}
 		$path=$request->file("image")->store('public/image');
 		$input['image'] = basename($path);
-			if($request->filled("image")){
-			    $image='入力値が存在します。値は'. $request->image;
-			} else{
-			    $image='入力値が存在しません。';
-			}
 		
 		//セッションへ"form_input"というキーで入力フォームを保存
 		$request->session()->put("form_input", $input);
@@ -130,9 +126,17 @@ class FoodieController extends Controller
     
     public function detail($id)
     {
-        $shop= Shop::find($id); 
+        $shop= Shop::find($id);
+       //detail.bladeの方で'id'は$shop->idと指定しているので$comment=Comment::find($id)をしてもshopのidしか取れない
+       //$shopに紐づけられたcommentsテーブルのrelax_guidlineとvolume_guidlineの平均値を求める
+        $relax_avg=$shop->comments->avg('relax_guidline');
+        $volume_avg=$shop->comments->avg('volume_guidline');
+        //小数点第2位まで表示
+        $relax_avg=round($relax_avg,2);
+        $volume_avg=round($volume_avg,2);
+        return view("foodie.detail",compact('shop','relax_avg','volume_avg'));
 
-        return view("foodie.detail",compact('shop'));
+        
     }
     
 }

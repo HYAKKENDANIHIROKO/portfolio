@@ -8,11 +8,12 @@ use App\Http\Controllers\Controller;
 use App\Comment;
 use App\Shop;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class CommentController extends Controller
 {
      //フォームの名前をプロパティに持たせる(bladeのフォーム部分にあるnameのところの名前と一緒)
-    private $formInfo = ["shop_id","user_id","comment_title","content","image1","image2","image3","relax_guidline","volume_guidline"];
+    private $formInfo = ["shop_id","user_id","comment_title","content","image1","image2","image3","relax_guidline","volume_guidline","submit_at"];
     
    
            
@@ -57,24 +58,16 @@ class CommentController extends Controller
 		unset($insert['image1']);
 		unset($insert['image2']);
 		unset($insert['image3']);
+		
 		$comment->fill($insert);
-			
+		$comment->submit_at=Carbon::now()->format("Y/m/d");	
 		$comment->save();
+		
 	
-	
-        return redirect()->action("CommentController@add",['id'=>$request->shop_id]);
+        return redirect()->action("CommentController@add",['id'=>$request->shop_id,'comment'=>$comment]);
     }
     
-        public function detail($id)
-    	{
-        $comments= Comment::find($id); 
         
-      
-        $relax_guidline=DB::table('comments')->Where('shop_id',$shop_id)->avg('relax_guidline');
-        
-
-        return view("foodie.detail",['comments'=>$comments]);
-    	}
         
        
            

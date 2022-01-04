@@ -26,17 +26,17 @@
                                     <label for="subject">
                                         店名
                                     </label>
-                                    <input name="shop_name" class="form-control" value="{{ old('shop_name') }}" type="text">
+                                    <input name="shop_name" class="form-control" value="{{ old('shop_name') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         値段
                                     </label>
-                                    <input name="price" class="form-control" value="{{ old('price') }}" type="text">
+                                    <input name="price" class="form-control" value="{{ old('price') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
-                                        画像
+                                        画像(※必須)
                                     </label>
                                     <input name="image" class="form-control-file" value="{{ old('image')}}" type="file" >
                                 </div>
@@ -44,56 +44,56 @@
                                     <label for="subject">
                                         座席 
                                     </label>
-                                    <input name="seat" class="form-control" value="{{ old('seat') }}" type="text">
+                                    <input name="seat" class="form-control" value="{{ old('seat') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                         最大予約可能人数（数値だけ入力してください）
                                     </label>
-                                    <input name="people_number" class="form-control" value="{{ old('people_number') }}" type="text">
+                                    <input name="people_number" class="form-control" value="{{ old('people_number') }}" placeholder="※必須" type="text">
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
                                         おすすめメニュー
                                     </label>
-                                    <input name="menu" class="form-control" value="{{ old('menu') }}" type="text">
+                                    <input name="menu" class="form-control" value="{{ old('menu') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        住所
                                     </label>
-                                    <input name="address" class="form-control" value="{{ old('address') }}" type="text">
+                                    <input name="address" class="form-control" value="{{ old('address') }}" placeholder="※必須" type="text">
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
                                        お問い合わせ番号
                                     </label>
-                                    <input name="tel" class="form-control" value="{{ old('tel') }}" type="text">
+                                    <input name="tel" class="form-control" value="{{ old('tel') }}" placeholder="※必須" type="text">
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
                                        営業時間
                                     </label>
-                                    <input name="opening_hours" class="form-control" value="{{ old('opening_hours') }}" type="text">
+                                    <input name="opening_hours" class="form-control" value="{{ old('opening_hours') }}" placeholder="※必須" type="text">
                                 </div>
                                  <div class="form-group">
                                     <label for="subject">
                                        交通手段
                                     </label>
-                                    <input name="transportation" class="form-control" value="{{ old('transportation') }}" type="text">
+                                    <input name="transportation" class="form-control" value="{{ old('transportation') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        支払い方法
                                     </label>
-                                    <input name="pay" class="form-control" value="{{ old('pay') }}" type="text">
+                                    <input name="pay" class="form-control" value="{{ old('pay') }}" placeholder="※必須" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
                                        ユーザー名
                                     </label>
                                     <div class="col-md-6">
-                                        <input name="user_id" class="form-control" value="{{ old('user_id') }}" type="text">
+                                        <input name="user_id" class="form-control" value="{{ old('user_id') }}" placeholder="※必須" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">

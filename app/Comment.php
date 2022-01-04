@@ -13,20 +13,17 @@ class Comment extends Model
         'comment_title'=>'required',
         'content'=> 'required',
         'relax_guidline'=> 'required',
-       'volume_guidline'=>'required'
+       'volume_guidline'=>'required',
+       
     );
     
-     public function users()
+     public function user()
     {
         return $this->belongsTo('App\User');
-
     }
     
-     public function shops()
+     public function shop()
     {
-        return $this->belongsTo('App\Comment');
-
+        return $this->belongsTo('App\Shop');
     }
-    
-
 }

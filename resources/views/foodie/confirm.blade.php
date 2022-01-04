@@ -29,7 +29,7 @@
                                     <label for="subject">
                                         画像
                                     </label>
-                                    {{ $input["image"] }}
+                                    <img class="img-fluid col-md-4" src="{{secure_asset('storage/image/'.$input["image"]) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">
