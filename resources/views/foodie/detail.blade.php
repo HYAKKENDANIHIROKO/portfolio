@@ -14,9 +14,38 @@
                                 <p class="price col-md-5">{{$shop->price}}</p>
                             </div>
                             <div class="form-group row">
-                                <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : {{$relax_avg}} </p>
-                                
-                                <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : {{$volume_avg}}</p>
+                                @switch($relax_avg)
+                                    @case($relax_avg>=1 && $relax_avg<=1.99)
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown blue-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                            @break
+                                    @case($relax_avg>=2 && $relax_avg<=2.99)
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                            @break
+                                    @case($relax_avg>=3 && $relax_avg<=3.99)
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin yellow-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                            @break
+                                    @case($relax_avg>=4 && $relax_avg<=4.99)
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-beam orange-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                            @break
+                                    @default
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-hearts red-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                @endswitch
+                                @switch($volume_avg)
+                                    @case($volume_avg>=1 && $volume_avg<=1.99)
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-blue mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                            @break
+                                    @case($volume_avg>=2 && $volume_avg<=2.99)
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-green mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                            @break
+                                    @case($volume_avg>=3 && $volume_avg<=3.99)   
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-yellow mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                            @break
+                                    @case($volume_avg>=4 && $volume_avg<=4.99)
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-orange mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                            @break
+                                    @default
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-red mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                @endswitch
                             </div>
                             <div class="form-group row">
                                <a href="#" class="col-md-5" style="font-size:18px;font-weight:bold;" onClick="history.back()">戻る</a> 
@@ -143,13 +172,36 @@
                             </table>
                         </div>
                         <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像
+                        
+                        @foreach($images as $key=>$image)
+                            @if ($key%3 == 0)
+                                <div class="d-flex flex-row bd-highlight col-md-12 m-3">
+                            @endif
+                                    <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $image)}}" class="img-fluid float-left pr-3"></div>
+                            @if ($key%3 == 2)
+                                </div> 
+                            @endif
+                        @endforeach
+                        @if ($key%3 !=2)
+                                </div>　
+                        @endif　
+
+                        
+                        @if(0)
                         @foreach($shop->comments as $comment)
                             <div class="d-flex flex-row bd-highlight col-md-12 m-3">
+                                @if($comment->image_path1)
                                 <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path1)}}" class="img-fluid float-left pr-3"></div>
+                                @endif
+                                @if($comment->image_path2)
                                 <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path2)}}" class="img-fluid float-left pr-3"></div>
+                                @endif
+                                @if($comment->image_path3)
                                 <div class="col-md-4"><img src="{{secure_asset('storage/image/'. $comment->image_path3)}}" class="img-fluid float-left pr-3"></div>
+                                @endif
                             </div>    
-                        @endforeach    
+                        @endforeach 
+                        @endif
                         </div>
                         <div class="tab-pane fade m-4" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">口コミ一覧(最新順です)
                             <div class="restoaurant-detail_report_list mt-3">

@@ -6,6 +6,12 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+//Font Awesome
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 
     body {
   background-repeat: no-repeat;
@@ -68,4 +74,35 @@
 
 .login-body {
   background-color: rgba(0, 0, 0, 0.25);
+}
+
+.blue-face::before{
+  content:'\f119';
+  font-family:'Font Awesome 5 Free';
+  font-weight:900;
+  color:royalblue;
+}
+.green-face::before{
+  content:'\f57a';
+  font-family:'Font Awesome 5 Free';
+  font-weight:900;
+  color:#228b22;
+}
+.yellow-face::before{
+  content:'\f580';
+  font-family:'Font Awesome 5 Free';
+  font-weight:900;
+  color:gold;
+}
+.orange-face::before{
+  content:'\f582';
+  font-family:'Font Awesome 5 Free';
+  font-weight:900;
+  color:orange;
+}
+.red-face::before{
+  content:'\f585';
+  font-family:'Font Awesome 5 Free';
+  font-weight:900;
+  color:crimson;
 }

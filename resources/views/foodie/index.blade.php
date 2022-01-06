@@ -54,11 +54,25 @@
                     </form>
                     <!--お店の一覧画面の実装-->
                     <div class="row">
+                        <div class="col-md-6">
+                            <p class="relax_guidline mr-2" style="font-size:25px;">リラックス度：<span class="fa-solid fa-face-frown blue-face fa-lg mr-1"></span>1
+                            <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>2<span class="fa-solid fa-face-grin yellow-face fa-lg mr-1"></span>3
+                            <span class="fa-solid fa-face-grin-beam orange-face fa-lg mr-1"></span>4<span class="fa-solid fa-face-grin-squint red-face fa-lg mr-1"></span>5</p>
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="volume_guidline mr-2" style="font-size:25px;">料理のボリューム度：<span class="fa-regular fa-face-frown blue-face fa-lg mr-1"></span>1
+                            <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>2<span class="fa-solid fa-circle fa-lg circle-yellow mr-1"></span>3
+                            <span class="fa-solid fa-circle fa-lg circle-orange mr-1"></span>4<span class="fa-solid fa-circle fa-lg circle-red mr-1"></span>5</p>
+                        </div>
+                        <div class="w-100"></div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-7">
-                            <p class="shop_list">お店の一覧</p>
+                            <p class="shop_list mt-3">お店の一覧</p>
                         </div>
                         <div class="col-md-5" style="text-align:right;">
-                            <a href="{{ action('FoodieController@show') }}" role="button" class="btn btn-success" style="font-size:19px;">お店の新規投稿はこちら</a>
+                            <a href="{{ action('FoodieController@show') }}" role="button" class="btn btn-success mt-3" style="font-size:19px;">お店の新規投稿はこちら</a>
                         </div>
                         <div class="w-100"></div>
                     </div>

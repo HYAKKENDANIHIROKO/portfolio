@@ -36,7 +36,7 @@ class FoodieController extends Controller
     }
     public function post(Request $request)
     {
-        //$formItemsに入っている、登録ページのフォームに入力した情報（shop_name,price,seat,menu,address,user_id）だけを変数$inputに代入※つまりtokenは入っていない
+        //$formItemsに入っている、登録ページのbladeにある情報だけを変数$inputに代入※つまりtokenは入っていない
         $input = $request->only($this->formItems);
         $validator = Validator::make($input, $this->validator);
 		if($validator->fails()){
@@ -134,7 +134,23 @@ class FoodieController extends Controller
         //小数点第2位まで表示
         $relax_avg=round($relax_avg,2);
         $volume_avg=round($volume_avg,2);
-        return view("foodie.detail",compact('shop','relax_avg','volume_avg'));
+        
+        $images = array();
+        foreach ($shop->comments as $comment) {
+            if ($comment->image_path1) {
+                $images[] = $comment->image_path1;
+            }
+            if ($comment->image_path2) {
+                $images[] = $comment->image_path2;
+            }
+            if ($comment->image_path3){
+                $images[] = $comment->image_path3;
+            }
+        }
+
+
+
+        return view("foodie.detail",compact('shop','relax_avg','volume_avg','images'));
 
         
     }
