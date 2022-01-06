@@ -32,19 +32,19 @@
                                 @endswitch
                                 @switch($volume_avg)
                                     @case($volume_avg>=1 && $volume_avg<=1.99)
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-blue mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-frown b-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                             @break
                                     @case($volume_avg>=2 && $volume_avg<=2.99)
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-green mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-frown-open g-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                             @break
                                     @case($volume_avg>=3 && $volume_avg<=3.99)   
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-yellow mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin fa-lg y-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                             @break
                                     @case($volume_avg>=4 && $volume_avg<=4.99)
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-orange mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin-beam o-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                             @break
                                     @default
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="fa-solid fa-circle fa-lg circle-red mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin-squint fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                 @endswitch
                             </div>
                             <div class="form-group row">

@@ -17207,3 +17207,33 @@ body {
   color: crimson;
 }
 
+.b-face {
+  content: "\F119";
+  font-family: "Font Awesome 5 Free";
+  color: royalblue;
+}
+
+.g-face {
+  content: "\F57A";
+  font-family: "Font Awesome 5 Free";
+  color: #228b22;
+}
+
+.y-face {
+  content: "\F580";
+  font-family: "Font Awesome 5 Free";
+  color: gold;
+}
+
+.o-face {
+  content: "\F582";
+  font-family: "Font Awesome 5 Free";
+  color: orange;
+}
+
+.r-face {
+  content: "\F585";
+  font-family: "Font Awesome 5 Free";
+  color: crimson;
+}
+

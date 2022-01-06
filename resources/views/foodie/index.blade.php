@@ -54,6 +54,9 @@
                     </form>
                     <!--お店の一覧画面の実装-->
                     <div class="row">
+                        <div class="col-md-12">
+                            <h5>※各お店の詳細画面にはお店のリラックス度と料理のボリューム度に関する指標が入ります。</h5>
+                        </div>    
                         <div class="col-md-6">
                             <p class="relax_guidline mr-2" style="font-size:25px;">リラックス度：<span class="fa-solid fa-face-frown blue-face fa-lg mr-1"></span>1
                             <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>2<span class="fa-solid fa-face-grin yellow-face fa-lg mr-1"></span>3
@@ -61,9 +64,9 @@
                         </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="volume_guidline mr-2" style="font-size:25px;">料理のボリューム度：<span class="fa-regular fa-face-frown blue-face fa-lg mr-1"></span>1
-                            <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>2<span class="fa-solid fa-circle fa-lg circle-yellow mr-1"></span>3
-                            <span class="fa-solid fa-circle fa-lg circle-orange mr-1"></span>4<span class="fa-solid fa-circle fa-lg circle-red mr-1"></span>5</p>
+                            <p class="volume_guidline mr-2" style="font-size:25px;">料理のボリューム度：<span class="far fa-frown b-face fa-lg mr-1"></span>1
+                            <span class="far fa-frown-open g-face fa-lg mr-1"></span>2<span class="far fa-grin y-face fa-lg mr-1"></span>3
+                            <span class="far fa-grin-beam o-face fa-lg mr-1"></span>4<span class="far fa-grin-squint r-face fa-lg mr-1"></span>5</p>
                         </div>
                         <div class="w-100"></div>
                     </div>

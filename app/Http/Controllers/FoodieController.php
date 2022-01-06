@@ -135,6 +135,7 @@ class FoodieController extends Controller
         $relax_avg=round($relax_avg,2);
         $volume_avg=round($volume_avg,2);
         
+        //$imagesを配列にする
         $images = array();
         foreach ($shop->comments as $comment) {
             if ($comment->image_path1) {
