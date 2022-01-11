@@ -1,13 +1,13 @@
-@extends('layouts.common')
+@extends('layouts.common3')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="register-box card">
+            <div class="register-box card" style="margin-top:150px;border:2px solid lightslategray;">
                 <div class="register-header card-header mx-auto">{{ __('messages.Register') }}</div>
 
-                <div class="register-body card-body bg-light">
+                <div class="register-body card-body bg-light" style="border-top:2px solid lightslategray;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

@@ -16,19 +16,19 @@
                             <div class="form-group row">
                                 @switch($relax_avg)
                                     @case($relax_avg>=1 && $relax_avg<=1.99)
-                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown blue-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown blue-face fa-lg mt-2 mr-1"></span>{{$relax_avg}}</p>
                                             @break
                                     @case($relax_avg>=2 && $relax_avg<=2.99)
-                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown-open green-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-frown-open green-face fa-lg mt-2 mr-1"></span>{{$relax_avg}}</p>
                                             @break
                                     @case($relax_avg>=3 && $relax_avg<=3.99)
-                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin yellow-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin yellow-face fa-lg mt-2 mr-1"></span>{{$relax_avg}}</p>
                                             @break
                                     @case($relax_avg>=4 && $relax_avg<=4.99)
-                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-beam orange-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-beam orange-face fa-lg mt-2 mr-1"></span>{{$relax_avg}}</p>
                                             @break
                                     @default
-                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-hearts red-face fa-lg mr-1"></span>{{$relax_avg}}</p>
+                                        <p class="relax-avg col-md-5 d-flex p-3" style="font-size:20px;">リラックス度 : <span class="fa-solid fa-face-grin-hearts red-face fa-lg mt-2 mr-1"></span>{{$relax_avg}}</p>
                                 @endswitch
                                 @switch($volume_avg)
                                     @case($volume_avg>=1 && $volume_avg<=1.99)
@@ -172,7 +172,7 @@
                             </table>
                         </div>
                         <div class="tab-pane fade" id="pills-image" role="tabpanel" aria-labelledby="pills-image-tab">口コミ投稿画像
-                        
+                        @if($images !=null)
                         @foreach($images as $key=>$image)
                             @if ($key%3 == 0)
                                 <div class="d-flex flex-row bd-highlight col-md-12 m-3">
@@ -185,7 +185,7 @@
                         @if ($key%3 !=2)
                                 </div>　
                         @endif　
-
+                        @endif
                         
                         @if(0)
                         @foreach($shop->comments as $comment)

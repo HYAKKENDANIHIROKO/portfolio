@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="login-box card">
+            <div class="login-box card" style="margin-top:80px;border:2px solid lightslategray;">
                 <div class="login-header card-header bg-light mx-auto">{{ __('messages.Login') }}</div>
 
                 <div class="login-body card-body">

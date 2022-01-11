@@ -105,7 +105,7 @@ class FoodieController extends Controller
            $query->where('people_number', '>=', $search_number);
         }
         //$search_areaと$search_keyと$search_numberに値があるなら検索
-        if(!empty($search_area) && !empty($search_key) && !empty($search_unmber) ){
+        if(!empty($search_area) && !empty($search_key) && !empty($search_number) ){
           $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=',$search_unmber );  
         }
          //$search_areaと$search_keyに値があるなら検索
@@ -113,20 +113,24 @@ class FoodieController extends Controller
           $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%');
         }
         //$search_areaと$search_numberに値があるなら検索
-        if(!empty($search_area) && !empty($search_unmber)){
+        if(!empty($search_area) && !empty($search_number)){
           $query->Where('address', 'like', '%'.$search_area.'%')->Where('people_number', '>=', $search_number);
         }
         //$search_keyと$search_numberに値があるなら検索
-        if(!empty($search_key) && !empty($search_unmber)){
+        if(!empty($search_key) && !empty($search_number)){
           $query->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=', $search_number);
         }
+        
+        //var_dump($query->select('id','address','shop_name','image','price')->toSql());
         $shops=$query->select('id','address','shop_name','image','price')->get();
+
         return view("foodie.index",["shops"=>$shops,"search_key"=>$search_key,"search_area"=>$search_area,"search_number"=>$search_number]);  
     }
     
     public function detail($id)
     {
         $shop= Shop::find($id);
+        // dd(getenv('DB_DATABASE'));
        //detail.bladeの方で'id'は$shop->idと指定しているので$comment=Comment::find($id)をしてもshopのidしか取れない
        //$shopに紐づけられたcommentsテーブルのrelax_guidlineとvolume_guidlineの平均値を求める
         $relax_avg=$shop->comments->avg('relax_guidline');

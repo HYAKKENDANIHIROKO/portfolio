@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
 Route::get('foodie/create','FoodieController@show')->middleware('auth')->name("create.show");

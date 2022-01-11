@@ -10,15 +10,15 @@
                     <form action="{{ action('FoodieController@index') }}" method="get" class="card mx-auto" style="width:70rem;">
                         <div class="card-body">
                             <div class=form-row> 
-                                <div class="form-group col-4">
+                                <div class="form-group col-3">
                                     <label class="search" for="area">エリア・駅</label>
                                     <input class="form-control" type="text" name="search_area" value="{{$search_area}}" placeholder="エリア・駅">
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-3">
                                     <label class="search" for="key-word">キーワード</label>
                                     <input class="form-control" type="text" name="search_key" value="{{$search_key}}" placeholder="キーワード">
                                 </div>
-                                <div class="form-group col-4">
+                                <div class="form-group col-2">
                                     <label class="search" for="people_number">人数</label>
                                     <select class="form-control" name="search_number">
                                         @for ($i = 1; $i <= 15; $i++)
@@ -26,7 +26,26 @@
                                         @endfor
                                     </select>
                                 </div>
-                               
+                                <div class="form-group col-2">
+                                    <label class="guideline" for="relax">リラックス度</label>
+                                    <select class="form-control" name="relax_guidline">
+                                        <option value="guideline1">1</option>  
+                                        <option value="guideline2">2</option> 
+                                        <option value="guideline3">3</option> 
+                                        <option value="guideline4">4</option>  
+                                        <option value="guideline5">5</option>  
+                                    </select>
+                                </div>
+                                <div class="form-group col-2">
+                                    <label class="guideline" for="volume" style="font-size:19px">料理のボリューム度</label>
+                                    <select class="form-control p-2" name="volume_guidline">
+                                        <option value="guideline1">1</option>  
+                                        <option value="guideline2">2</option> 
+                                        <option value="guideline3">3</option> 
+                                        <option value="guideline4">4</option>  
+                                        <option value="guideline5">5</option>  
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <input class="mx-auto col-md-2 btn btn-danger" type="submit" name="submit" value="検索"> 

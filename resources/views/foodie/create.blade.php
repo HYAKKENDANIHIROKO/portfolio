@@ -102,6 +102,7 @@
                                         {{ csrf_field() }}
                                         <input type="submit" class="btn btn-danger" value="送信">
                                     </div>
+                                    <a href="{{url('foodie')}}" style="font-weight:bold;font-size:18px;">戻る</a>
                                 </div>
                             </fieldset>
                         </form>

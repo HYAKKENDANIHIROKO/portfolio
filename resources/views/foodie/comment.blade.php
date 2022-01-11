@@ -85,7 +85,12 @@
                                     </div>
                                 </div>
                                 {{ csrf_field() }}
+                                <div class="col-md-2 mb-4">
                                     <input type="submit" class="btn btn-danger" value="送信">
+                                </div>
+                                <div class="col-md-9">
+                                    <a href='{{url('foodie/detail',['id'=>$shop->id])}}'style="font-weight:bold;">戻る</a>
+                                </div>
                             </fieldset>
                         </form>
                     </div>
