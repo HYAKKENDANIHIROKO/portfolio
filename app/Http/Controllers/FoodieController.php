@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Shop;
 use App\Comment;
 use Carbon\Carbon;
+use Storage;
 
 class FoodieController extends Controller
 {
@@ -44,8 +45,10 @@ class FoodieController extends Controller
 				->withInput()
 				->withErrors($validator); 
 		}
-		$path=$request->file("image")->store('public/image');
-		$input['image'] = basename($path);
+		//$path=$request->file("image")->store('public/image');
+		//$input['image'] = basename($path);
+		$path = Storage::disk('s3')->putFile('/',$input['image'],'public');
+        $input['image'] = Storage::disk('s3')->url($path);
 		
 		//セッションへ"form_input"というキーで入力フォームを保存
 		$request->session()->put("form_input", $input);

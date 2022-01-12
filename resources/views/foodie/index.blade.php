@@ -62,7 +62,7 @@
                     </div>
                     <div class="row ">
                         @foreach($shops as $shop)
-                            <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{secure_asset('storage/image/'.$shop->image) }}"></div>
+                            <div class="col-md-5 place border-bottom border-dark border-right-0"><img class="img-fluid" src="{{($shop->image) }}"></div>
                             <div class="col-md-7 border-bottom border-dark">
                                     <a href= "{{ route('foodie.detail', ['id'=>$shop->id]) }}" class="shop_name col-md-5">{{$shop->shop_name}}</a> 
                                     <p class="price">{{$shop->price}}</p>

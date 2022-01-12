@@ -9,6 +9,7 @@ use App\Comment;
 use App\Shop;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Storage;
 
 class CommentController extends Controller
 {
@@ -35,22 +36,22 @@ class CommentController extends Controller
 		//dd($insert);
 		//image_path1に画像がある場合とない場合の処理
 		if(isset($insert['image1'])){
-		   $path1 = $request->file('image1')->store('public/image');
-		   $comment->image_path1 = basename($path1);
+		   $path1 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
+           $comment->image_path1 = Storage::disk('s3')->url($path1);
 		}else {
 		  $comment->image_path1 = null;
 		}
 		//image_path2に画像がある場合とない場合の処理
 		if(isset($insert['image2'])){
-		   $path2 = $request->file('image2')->store('public/image');
-		   $comment->image_path2 = basename($path2); 
+			$path2 = Storage::disk('s3')->putFile('/',$insert['image2'],'public');
+        	$comment->image_path2 = Storage::disk('s3')->url($path2);
 		}else {
 		    $comment->image_path2 = null; 
 		}
 		//image_path3に画像がある場合とない場合の処理
 		if(isset($insert['image3'])){
-		   $path3 = $request->file('image3')->store('public/image');
-		   $comment->image_path3 = basename($path3);  
+		   $path3 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
+           $comment->image_path3 = Storage::disk('s3')->url($path3);
 		}
 		else{
 		    $comment->image_path3 = null;
