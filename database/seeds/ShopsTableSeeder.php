@@ -12,18 +12,6 @@ class ShopsTableSeeder extends Seeder
     public function run()
     {
         $shops=[
-                 ['shop_name'=>'店名',
-                 'price'=>'1000円～',
-                 'image'=>'hn9GS4djlgq1asKsTBE3mgZy665znijZtZ3EChVJ.jpg',
-                 'seat'=>'テラス',
-                 'menu'=>'ドリンク',
-                 'address'=>'あ１２',
-                 'user_id'=>'ひろ',
-                 'tel'=>'012',
-                 'opening_hours'=>'9時～17時',
-                 'transportation'=>'総武線 代々木駅から徒歩10分',
-                 'pay'=>'現金・クレジット可能',
-                 'people_number'=>'6'],
                   ['shop_name'=>'木の実',
                  'price'=>'昼：1000円～1999円　夜1000円～1999円',
                  'image'=>'jXz9YdrvxZKQ2PqOcaoo0EXF6vANILfBal5ZiP2m.jpg',
