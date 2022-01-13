@@ -44,7 +44,7 @@
                                         <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin-beam o-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                             @break
                                     @default
-                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin-squint fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
+                                        <p class="volume-avg col-md-5 d-flex p-3" style="font-size:20px;">料理のボリューム度 : <span class="far fa-grin-squint r-face fa-lg mt-2 mr-1"></span>{{$volume_avg}}</p>
                                 @endswitch
                             </div>
                             <div class="form-group row">
