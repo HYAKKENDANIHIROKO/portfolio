@@ -76,7 +76,7 @@
                     <div class="tab-content" id="pills-tabContent col-md-12">
                         <div class="tab-pane fade show active mb-3" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab">
                             <div class="d-flex flex-row bd-highlight col-md-12 m-3">
-                                <img src="{{($shop->image) }}" class="img-fluid float-md-left pr-3 col-md-4">
+                                <img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $shop->image }}" class="img-fluid float-md-left pr-3 col-md-4">
                             </div>
                             <table class="table table-bordered p-3">
                                 <h3 class="mt-5">基本情報</h3>
@@ -177,7 +177,7 @@
                             @if ($key%3 == 0)
                                 <div class="d-flex flex-row bd-highlight col-md-12 m-3">
                             @endif
-                                    <div class="col-md-4"><img src="{{($image)}}" class="img-fluid float-left pr-3"></div>
+                                    <div class="col-md-4"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $image}}" class="img-fluid float-left pr-3"></div>
                             @if ($key%3 == 2)
                                 </div> 
                             @endif
@@ -191,13 +191,13 @@
                         @foreach($shop->comments as $comment)
                             <div class="d-flex flex-row bd-highlight col-md-12 m-3">
                                 @if($comment->image_path1)
-                                <div class="col-md-4"><img src="{{($comment->image_path1)}}" class="img-fluid float-left pr-3"></div>
+                                <div class="col-md-4"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path1}}" class="img-fluid float-left pr-3"></div>
                                 @endif
                                 @if($comment->image_path2)
-                                <div class="col-md-4"><img src="{{($comment->image_path2)}}" class="img-fluid float-left pr-3"></div>
+                                <div class="col-md-4"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path2}}" class="img-fluid float-left pr-3"></div>
                                 @endif
                                 @if($comment->image_path3)
-                                <div class="col-md-4"><img src="{{($comment->image_path3)}}" class="img-fluid float-left pr-3"></div>
+                                <div class="col-md-4"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path3}}" class="img-fluid float-left pr-3"></div>
                                 @endif
                             </div>    
                         @endforeach 
@@ -220,13 +220,13 @@
                                             <figure class="restaurant_report_images">
                                                 <div class="d-flex flex-row col-md-12 m-3">
                                                     @if($comment->image_path1 !=null)
-                                                        <div class="col-md-4" style="text-align:right"><img src="{{($comment->image_path1) }}" class="img-fluid"></div>
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path1 }}" class="img-fluid"></div>
                                                     @endif
                                                     @if($comment->image_path2 !=null)
-                                                        <div class="col-md-4" style="text-align:right"><img src="{{($comment->image_path2) }}" class="img-fluid"></div>
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path2 }}" class="img-fluid"></div>
                                                     @endif
                                                     @if($comment->image_path3 !=null)
-                                                        <div class="col-md-4" style="text-align:right"><img src="{{($comment->image_path3) }}" class="img-fluid"></div>
+                                                        <div class="col-md-4" style="text-align:right"><img src="{{'https://techboost9.s3.ap-northeast-1.amazonaws.com/' . $comment->image_path3 }}" class="img-fluid"></div>
                                                     @endif
                                                 </div>
                                             </figure>
