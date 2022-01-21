@@ -8,9 +8,8 @@
                 <div class="row">
                     <div class="col-md-9 mx-auto">
                         <!--お店の登録フォーム作成-->
-                        <h1 class="h2 mt-2 mb-2">
+                        <h1 class="h2 mt-2 mb-2"></h1>
                             お店の新規登録
-                        </h1>
                         <form action="{{action("FoodieController@post") }}" method="post" enctype="multipart/form-data">
                             @if (count($errors) > 0)
                                 <div style="color:red;">

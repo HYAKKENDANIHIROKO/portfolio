@@ -3,7 +3,7 @@
  <link href="{{ asset('css/sample.css') }}" rel="stylesheet">
 @section('content')
     <div class="top-wrapper"> 
-        <div class="container mt-4">
+        <div class="container" style="margin-top:60px;">
             <div class="border p-4 bg-light">
                 <div class="row">
                     <div class="col-md-9 mx-auto">
@@ -37,7 +37,7 @@
                                     </label>
                                     {{ $input["seat"] }}
                                 </div>
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <label for="subject">
                                         メニュー
                                     </label>
@@ -57,7 +57,6 @@
                                      {{ $input["user_id"] }}
                                     </div>
                                 </div>
-                                {{ csrf_field() }}
                                 <input type="submit" class="btn btn-danger" value="登録">
                             </fieldset>
                         </form>

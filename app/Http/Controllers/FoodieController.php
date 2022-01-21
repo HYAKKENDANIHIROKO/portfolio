@@ -132,8 +132,8 @@ class FoodieController extends Controller
     
     public function detail($id)
     {
-        $shop= Shop::find($id);
-        // dd(getenv('DB_DATABASE'));
+        $shop= Shop::findOrFail($id);
+      
        //detail.bladeの方で'id'は$shop->idと指定しているので$comment=Comment::find($id)をしてもshopのidしか取れない
        //$shopに紐づけられたcommentsテーブルのrelax_guidlineとvolume_guidlineの平均値を求める
         $relax_avg=$shop->comments->avg('relax_guidline');
