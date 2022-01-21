@@ -10,11 +10,11 @@
                     <h1 class="h2 mt-2 mb-5">口コミの投稿</h1>
                         <form action="{{action('CommentController@comment')}}" method="post" enctype="multipart/form-data">
                             @if (count($errors) > 0)
-                                    <ul>
+                                <ul>
                                 @foreach($errors->all() as $e)
-                                        <li>{{ $e }}</li>
+                                    <li>{{ $e }}</li>
                                 @endforeach
-                                    </ul>
+                                </ul>
                             @endif
                             <fieldset class="mb-4">
                                 <div class="form-group col-md-6">

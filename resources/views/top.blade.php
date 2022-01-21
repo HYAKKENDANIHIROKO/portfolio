@@ -70,21 +70,20 @@
                 <div class="col-md-12">
                     <div class="title content">Foodie trip へようこそ！</div>
                 </div>
-                    <div class="col-md-6 content">
-                        @if (Route::has('login'))
-                            <div class="center links">
-                            @auth
-                                <a href="{{ url('/home') }}" style="font-size:30px;">Home</a>
-                        @else
-                                <a href="{{ route('login') }}" style="font-size:30px;">ログインはこちら</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" style="font-size:30px;">新規登録はこちら</a>
-                            @endif
-                            @endauth
-                    </div>
-                        @endif
+                <div class="col-md-6 content">
+                    @if (Route::has('login'))
+                        <div class="center links">
+                        @auth
+                            <a href="{{ url('/home') }}" style="font-size:30px;">Home</a>
+                    @else
+                            <a href="{{ route('login') }}" style="font-size:30px;">ログインはこちら</a>
+                    @if (Route::has('register'))
+                            <a href="{{ route('register') }}" style="font-size:30px;">新規登録はこちら</a>
+                    @endif
+                        @endauth
+                </div>
+                    @endif
             </div>   
         </div>    
-        
     </body>
 </html>
