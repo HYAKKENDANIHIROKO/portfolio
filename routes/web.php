@@ -22,7 +22,7 @@ Route::post('foodie/create/confirm','FoodieController@send')->name("create.send"
 Route::get('foodie/create/thanks','FoodieController@complete')->name("create.complete");
 
 Route::get('foodie','FoodieController@index')->name("foodie");
-Route::get('foodie/detail/{id}','FoodieController@detail')->name("foodie.detail");
+Route::get('foodie/detail/{shop}','FoodieController@detail')->name("foodie.detail");
 
 Route::get('foodie/comment/{id}','CommentController@add')->middleware('auth')->name("comment.add");
 Route::post('foodie/comment','CommentController@comment')->middleware('auth')->name("comment.comment");

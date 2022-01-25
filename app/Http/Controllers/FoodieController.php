@@ -109,7 +109,7 @@ class FoodieController extends Controller
         }
         //$search_areaと$search_keyと$search_numberに値があるなら検索
         if(!empty($search_area) && !empty($search_key) && !empty($search_number) ){
-          $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=',$search_unmber );  
+          $query->Where('address', 'like', '%'.$search_area.'%')->Where('shop_name', 'like', '%'.$search_key.'%')->Where('people_number', '>=',$search_number );  
         }
          //$search_areaと$search_keyに値があるなら検索
         if(!empty($search_area) && !empty($search_key)){
@@ -130,9 +130,9 @@ class FoodieController extends Controller
         return view("foodie.index",["shops"=>$shops,"search_key"=>$search_key,"search_area"=>$search_area,"search_number"=>$search_number]);  
     }
     
-    public function detail($id)
+    public function detail(Shop $shop)
     {
-        $shop= Shop::findOrFail($id);
+        //$shop= Shop::findOrFail($id);
       
        //detail.bladeの方で'id'は$shop->idと指定しているので$comment=Comment::find($id)をしてもshopのidしか取れない
        //$shopに紐づけられたcommentsテーブルのrelax_guidlineとvolume_guidlineの平均値を求める

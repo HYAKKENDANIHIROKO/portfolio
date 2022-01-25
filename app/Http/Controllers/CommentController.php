@@ -27,34 +27,32 @@ class CommentController extends Controller
     }
     public function comment(Request $request)
     {
-    	//dd($request);
     	//$forminfoに入っている口コミ投稿ページのフォームに入力した情報だけを$insertに代入
         $insert = $request->only($this->formInfo);
         $this->validate($request, Comment::$rules);
 		
 		$comment=new Comment;
-		//dd($insert);
 		//image_path1に画像がある場合とない場合の処理
 		if(isset($insert['image1'])){
-		   $path1 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
-           $comment->image_path1 = basename(Storage::disk('s3')->url($path1));
+			$path1 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
+        	$comment->image_path1 = basename(Storage::disk('s3')->url($path1));
 		}else {
-		  $comment->image_path1 = null;
+			$comment->image_path1 = null;
 		}
 		//image_path2に画像がある場合とない場合の処理
 		if(isset($insert['image2'])){
 			$path2 = Storage::disk('s3')->putFile('/',$insert['image2'],'public');
-        	$comment->image_path2 = basename(Storage::disk('s3')->url($path2));
+    		$comment->image_path2 = basename(Storage::disk('s3')->url($path2));
 		}else {
 		    $comment->image_path2 = null; 
 		}
 		//image_path3に画像がある場合とない場合の処理
 		if(isset($insert['image3'])){
-		   $path3 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
-           $comment->image_path3 = basename(Storage::disk('s3')->url($path3));
+			$path3 = Storage::disk('s3')->putFile('/',$insert['image1'],'public');
+        	$comment->image_path3 = basename(Storage::disk('s3')->url($path3));
 		}
 		else{
-		    $comment->image_path3 = null;
+			$comment->image_path3 = null;
 		}
 		unset($insert['image1']);
 		unset($insert['image2']);
@@ -64,12 +62,7 @@ class CommentController extends Controller
 		$comment->submit_at=Carbon::now()->format("Y/m/d");	
 		$comment->save();
 		
-	
         return redirect()->action("CommentController@add",['id'=>$request->shop_id,'comment'=>$comment]);
     }
     
-        
-        
-       
-           
 }
